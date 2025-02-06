@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Botão de Cor</title>
+</head>
+<body>
+<button id="meuBotao">Clique para mudar de cor</button>
+
+<script>
+    document.getElementById("meuBotao").addEventListener("click", function() {
+        let cores = ["red", "blue", "green", "yellow", "purple"];
+        let corAleatoria = cores[Math.floor(Math.random() * cores.length)];
+        this.style.backgroundColor = corAleatoria;
+    });
+</script>
+</body>
+</html>
