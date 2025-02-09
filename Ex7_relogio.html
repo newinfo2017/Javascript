@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relógio Digital</title>
+    <style>
+        body { text-align: center; font-family: Arial, sans-serif; }
+        #relogio { font-size: 100px; margin-top: 20%; }
+    </style>
+</head>
+<body>
+    <div id="relogio"></div>
+
+    <script>
+        function atualizarRelogio() {
+            let agora = new Date();
+            let horas = agora.getHours().toString().padStart(2, "0");
+            let minutos = agora.getMinutes().toString().padStart(2, "0");
+            let segundos = agora.getSeconds().toString().padStart(2, "0");
+            document.getElementById("relogio").innerHTML = `${horas}:${minutos}:${segundos}`;
+        }
+        
+        setInterval(atualizarRelogio, 1000);
+        atualizarRelogio();
+    </script>
+</body>
+</html>
