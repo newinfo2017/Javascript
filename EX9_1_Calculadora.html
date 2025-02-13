@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Calculadora</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 50px;
+                text-align: center;
+            }
+            input {
+                padding: 5px;
+                margin: 5px;
+            }
+            select {
+                padding: 5px;
+            }
+            button {
+                padding: 10px 15px;
+                background-color: #4CAF50;
+                color: white;
+                border: none;
+                cursor: pointer;
+            }
+            button:hover {
+                background-color: #06360a;
+            }
+            .resultado {
+                margin-top: 20px;
+                font-size: 20px;
+                font-weight: bold;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Calculadora Simples</h1>
+        
+        <input type="number" id="num1" placeholder="Primeiro número">
+        <input type="number" id="num2" placeholder="Segundo número">
+        
+        <select id="operador">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+        </select>
+
+        <button onclick="calcular()">Calcular</button>
+
+        <div class="resultado" id="resultado"></div>
+
+        <script>
+            function calcular() {
+                const num1 = parseFloat(document.getElementById('num1').value);
+                const num2 = parseFloat(document.getElementById('num2').value);
+                const operador = document.getElementById('operador').value;
+                let resultado = 0;
+                let erro = '';
+
+                if (isNaN(num1) || isNaN(num2)) {
+                    erro = "Por favor, insira números válidos!";
+                } else {
+                    switch (operador) {
+                        case "+":
+                            resultado = num1 + num2;
+                            break;
+                        case "-":
+                            resultado = num1 - num2;
+                            break;
+                        case "*":
+                            resultado = num1 * num2;
+                            break;
+                        case "/":
+                            if (num2 === 0) {
+                                erro = "Erro: Divisão por zero!";
+                            } else {
+                                resultado = num1 / num2;
+                            }
+                            break;
+                        default:
+                            erro = "Operador inválido!";
+                    }
+                }
+
+                // Exibir o resultado ou erro
+                document.getElementById('resultado').innerText = erro || `Resultado: ${resultado}`;
+            }
+        </script>
+    </body>
+</html>
